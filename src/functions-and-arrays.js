@@ -33,29 +33,67 @@ findLongestWord(words);
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
-
+function sumNumbers(numbers) {
+  if (numbers.length === 0) {
+    return 0;
+  }
+  let sumResult = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sumResult += numbers[i];
+  }
+  return sumResult;
+}
 
 // Iteration #3.1 Bonus:
-function sum() {}
+const mixedArr = [6, 12, 'miami', 1, true, 'barca', '200', 'lisboa', 8, 10];
+// should return: 57
 
-
-
+function sum(patata) {
+  if (patata.length === 0) {
+    return 0;
+  }
+  let result = 0;
+  for (let i = 0; i < patata.length; i++){
+    if (typeof patata[i] == "string") {
+      result += patata[i].length;
+    } else if (typeof patata[i] == "number") {
+      result += patata[i];
+    } else if (typeof patata[i] == "boolean") {
+      result += Number(patata[i])
+    } else {
+       throw new Error("Unsupported data type sir or ma'am")
+    }
+  } 
+return result;
+}
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
-
+function averageNumbers(naranja) {
+  if (naranja.length === 0) {
+    return null;
+  }
+ return sumNumbers(naranja) / naranja.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsArr) {
+  if (wordsArr.length === 0) {
+    return null;
+  }
+  return sum(wordsArr) / wordsArr.length;
+ }
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(platano) {
+  if (platano.length === 0) {
+    return null;
+  }
+  return sum(platano) / platano.length;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -72,7 +110,19 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(melon) {
+  const newArray = [];
+  if (melon.length === 0) {
+    return null;
+  }
+  for (let i = 0; i < melon.length; i++) { 
+    if (!newArray.includes(melon[i])) { // es equivalente a xxxx === false
+      newArray.push(melon[i]);
+    }
+  }
+  return newArray;
+}
+uniquifyArray(wordsUnique)
 
 
 
